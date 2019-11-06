@@ -3,7 +3,7 @@
 WIP
 
 This is a CLI tool for printing ecs overrides JSON string.
-It is used on executing [ecs run-task command](https://docs.aws.amazon.com/cli/latest/reference/ecs/run-task.html).
+It is supposed to be used on executing [ecs run-task command](https://docs.aws.amazon.com/cli/latest/reference/ecs/run-task.html).
 
 ## Usage
 
