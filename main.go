@@ -12,11 +12,11 @@ import (
 	"github.com/urfave/cli"
 )
 
-var Version = "0.0.3"
+const version = "0.0.3"
 
 func main() {
 	app := cli.NewApp()
-	app.Version = Version
+	app.Version = version
 	app.Usage = "[name] [command...]"
 
 	app.Flags = []cli.Flag{
