@@ -7,12 +7,20 @@ It is supposed to be used on executing [ecs run-task command](https://docs.aws.a
 
 ## Usage
 
-### cmd [name] [command]
+### [--env <KEY=VAL>] [name] [command]
 
-Only override container name and command.
+override container name and command, and environment.
+
+* Basic
 
 ```sh
-$ ecs-overrides cmd app "echo hello world"
+$ ecs-overrides app echo hello world
 {"ContainerOverrides":[{"Command":["echo","hello","world"],"Cpu":null,"Environment":null,"Memory":null,"MemoryReservation":null,"Name":"app","ResourceRequirements":null}],"ExecutionRoleArn":null,"InferenceAcceleratorOverrides":null,"TaskRoleArn":null}%
 ```
 
+* With environment
+
+```sh
+$ ecs-overrides -e XXX=abc -e YYY=def app echo hello world
+{"ContainerOverrides":[{"Command":["echo","hello","world"],"Cpu":null,"Environment":[{"Name":"XXX","Value":"abc"},{"Name":"YYY","Value":"def"}],"Memory":null,"MemoryReservation":null,"Name":"app","ResourceRequirements":null}],"ExecutionRoleArn":null,"InferenceAcceleratorOverrides":null,"TaskRoleArn":null}%
+```
