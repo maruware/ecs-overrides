@@ -112,11 +112,8 @@ release-targz: $(ARTIFACTS_DIR)
 release-zip: $(ARTIFACTS_DIR)
 	cd $(RELEASE_DIR) && zip -9 $(CURDIR)/$(ARTIFACTS_DIR)/$(PROJECTNAME)_$(GOOS)_$(GOARCH).zip $(PROJECTNAME)_$(GOOS)_$(GOARCH)/*
 
-release-github-token: github_token
-	@echo "file `github_token` is required"
-
-release-upload: release release-github-token
-	ghr -t $(shell cat github_token) --draft --replace $(VERSION) $(ARTIFACTS_DIR)
+release-upload: release
+	ghr -t $(GITHUB_TOKEN) --draft --replace $(VERSION) $(ARTIFACTS_DIR)
 
 clean:
 	-rm -rf $(RELEASE_DIR)/*/*
